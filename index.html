@@ -1,0 +1,1802 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Sablu Hasan is a professional WordPress Developer and Web Designer building fast, modern, conversion-focused WordPress websites." />
+  <meta name="keywords" content="Sablu Hasan, WordPress Developer, Elementor Expert, Web Designer, WooCommerce Developer, Bangladesh" />
+  <meta name="author" content="Sablu Hasan" />
+  <meta property="og:title" content="Sablu Hasan | WordPress Developer & Web Designer" />
+  <meta property="og:description" content="Fast, modern, conversion-focused WordPress websites for businesses, startups, agencies, and entrepreneurs." />
+  <meta property="og:type" content="website" />
+  <title>Sablu Hasan | Premium WordPress Developer & Web Designer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    /* Premium portfolio website customized for Sablu Hasan | Main color: #FF6A00 */
+    :root {
+      --bg: #050711;
+      --bg-2: #0a0f1f;
+      --surface: rgba(255, 255, 255, 0.075);
+      --surface-2: rgba(255, 255, 255, 0.115);
+      --text: #f7fbff;
+      --muted: #a8b5c9;
+      --soft: #d7e0ee;
+      --line: rgba(255, 255, 255, 0.13);
+      --accent: #FF6A00;
+      --accent-2: #ff9b4a;
+      --accent-3: #22c55e;
+      --warning: #fbbf24;
+      --shadow: 0 24px 80px rgba(0, 0, 0, 0.35);
+      --radius: 26px;
+      --radius-sm: 18px;
+      --container: 1180px;
+      --nav-h: 78px;
+    }
+
+    html[data-theme="light"] {
+      --bg: #f8fbff;
+      --bg-2: #edf4ff;
+      --surface: rgba(255, 255, 255, 0.78);
+      --surface-2: rgba(255, 255, 255, 0.92);
+      --text: #07111f;
+      --muted: #5d6c80;
+      --soft: #1f2937;
+      --line: rgba(12, 20, 33, 0.12);
+      --shadow: 0 24px 80px rgba(37, 60, 97, 0.14);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: calc(var(--nav-h) + 20px);
+    }
+
+    body {
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 12% 8%, rgba(255, 106, 0, 0.22), transparent 26%),
+        radial-gradient(circle at 82% 12%, rgba(255, 155, 74, 0.22), transparent 30%),
+        radial-gradient(circle at 65% 80%, rgba(34, 197, 94, 0.10), transparent 24%),
+        linear-gradient(135deg, var(--bg), var(--bg-2));
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    button, input, textarea { font: inherit; }
+
+    .noise {
+      position: fixed;
+      inset: 0;
+      opacity: 0.05;
+      pointer-events: none;
+      z-index: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+
+    .orb {
+      position: fixed;
+      width: 360px;
+      height: 360px;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.32;
+      z-index: 0;
+      pointer-events: none;
+      animation: floatOrb 12s ease-in-out infinite alternate;
+    }
+
+    .orb.one { left: -120px; top: 18%; background: var(--accent); }
+    .orb.two { right: -120px; top: 44%; background: var(--accent-2); animation-delay: -4s; }
+    .orb.three { left: 48%; bottom: -180px; background: var(--accent-3); animation-delay: -8s; }
+
+    @keyframes floatOrb {
+      from { transform: translate3d(0, 0, 0) scale(1); }
+      to { transform: translate3d(40px, -42px, 0) scale(1.08); }
+    }
+
+    .container {
+      width: min(100% - 32px, var(--container));
+      margin-inline: auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .section {
+      padding: 112px 0;
+      position: relative;
+      z-index: 1;
+    }
+
+    .section-header {
+      max-width: 760px;
+      margin-bottom: 44px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 9px 14px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--accent);
+      background: var(--surface);
+      backdrop-filter: blur(18px);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      box-shadow: 0 0 18px var(--accent);
+    }
+
+    h1, h2, h3 { letter-spacing: -0.045em; line-height: 1.03; }
+
+    h1 {
+      font-size: clamp(44px, 7vw, 86px);
+      font-weight: 900;
+      max-width: 970px;
+    }
+
+    h2 {
+      font-size: clamp(34px, 5vw, 58px);
+      font-weight: 900;
+      margin-bottom: 18px;
+    }
+
+    h3 {
+      font-size: 22px;
+      font-weight: 800;
+    }
+
+    p {
+      color: var(--muted);
+      line-height: 1.75;
+      font-size: 16px;
+    }
+
+    .gradient-text {
+      background: linear-gradient(135deg, var(--text), var(--accent) 42%, var(--accent-2));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .glass {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(22px);
+      -webkit-backdrop-filter: blur(22px);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 52px;
+      padding: 0 22px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      cursor: pointer;
+      font-weight: 800;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+      white-space: nowrap;
+    }
+
+    .btn:hover { transform: translateY(-3px); }
+
+    .btn-primary {
+      border: 0;
+      color: #03101b;
+      background: linear-gradient(135deg, var(--accent), #ffffff 45%, var(--accent-2));
+      box-shadow: 0 18px 48px rgba(255, 106, 0, 0.25);
+    }
+
+    .btn-secondary {
+      color: var(--text);
+      background: var(--surface);
+      backdrop-filter: blur(18px);
+    }
+
+    .btn-secondary:hover {
+      border-color: rgba(255, 106, 0, 0.55);
+      box-shadow: 0 14px 32px rgba(255, 106, 0, 0.12);
+    }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      height: var(--nav-h);
+      border-bottom: 1px solid var(--line);
+      background: rgba(5, 7, 17, 0.58);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+    }
+
+    html[data-theme="light"] .nav { background: rgba(248, 251, 255, 0.72); }
+
+    .nav-inner {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 900;
+      letter-spacing: -0.04em;
+    }
+
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 14px;
+      background: linear-gradient(135deg, rgba(110, 231, 255, 0.95), rgba(139, 92, 246, 0.95));
+      color: #fff;
+      box-shadow: 0 14px 34px rgba(255, 155, 74, 0.28);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .nav-links a {
+      transition: color 0.2s ease;
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -7px;
+      height: 2px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.25s ease;
+    }
+
+    .nav-links a:hover, .nav-links a.active { color: var(--text); }
+    .nav-links a:hover::after, .nav-links a.active::after { transform: scaleX(1); }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .icon-btn {
+      width: 44px;
+      height: 44px;
+      border-radius: 999px;
+      display: grid;
+      place-items: center;
+      color: var(--text);
+      background: var(--surface);
+      border: 1px solid var(--line);
+      cursor: pointer;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .icon-btn:hover { transform: translateY(-2px); border-color: rgba(255, 106, 0, 0.5); }
+
+    .menu-btn { display: none; }
+
+    .hero {
+      padding: 86px 0 74px;
+      min-height: calc(100vh - var(--nav-h));
+      display: grid;
+      align-items: center;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 54px;
+      align-items: center;
+    }
+
+    .hero p.subheadline {
+      max-width: 690px;
+      margin: 24px 0 0;
+      font-size: clamp(17px, 2vw, 21px);
+      color: var(--soft);
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 34px;
+    }
+
+    .hero-trust {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 30px;
+    }
+
+    .trust-pill {
+      padding: 11px 14px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--surface);
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 700;
+      backdrop-filter: blur(18px);
+    }
+
+    .hero-visual {
+      position: relative;
+      min-height: 565px;
+      display: grid;
+      place-items: center;
+    }
+
+    .dashboard-card {
+      width: min(100%, 470px);
+      border-radius: 34px;
+      padding: 22px;
+      position: relative;
+      overflow: hidden;
+      transform-style: preserve-3d;
+      animation: floatCard 5.5s ease-in-out infinite alternate;
+    }
+
+    @keyframes floatCard {
+      from { transform: translateY(0) rotateX(0deg) rotateY(0deg); }
+      to { transform: translateY(-14px) rotateX(1.5deg) rotateY(-1.5deg); }
+    }
+
+    .dashboard-card::before {
+      content: "";
+      position: absolute;
+      inset: -2px;
+      background: radial-gradient(circle at 18% 12%, rgba(255, 106, 0, 0.35), transparent 32%), radial-gradient(circle at 82% 0%, rgba(255, 155, 74, 0.35), transparent 32%);
+      pointer-events: none;
+    }
+
+    .dashboard-inner {
+      position: relative;
+      z-index: 1;
+      border-radius: 26px;
+      padding: 20px;
+      background: rgba(4, 8, 18, 0.62);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    html[data-theme="light"] .dashboard-inner { background: rgba(255, 255, 255, 0.76); }
+
+    .profile-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    .profile-mini {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+    }
+
+    .avatar {
+      width: 58px;
+      height: 58px;
+      border-radius: 20px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: #fff;
+      font-weight: 900;
+      box-shadow: 0 16px 34px rgba(255, 106, 0, 0.16);
+    }
+
+    .status-dot {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--accent-3);
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .status-dot::before {
+      content: "";
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--accent-3);
+      box-shadow: 0 0 14px var(--accent-3);
+    }
+
+    .hero-meter {
+      height: 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.10);
+      overflow: hidden;
+      margin: 16px 0 20px;
+    }
+
+    .hero-meter span {
+      display: block;
+      width: 94%;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+    }
+
+    .mini-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    .mini-card {
+      padding: 16px;
+      border-radius: 20px;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.10);
+    }
+
+    html[data-theme="light"] .mini-card { background: rgba(255,255,255,0.72); }
+
+    .mini-card strong {
+      display: block;
+      font-size: 24px;
+      letter-spacing: -0.04em;
+      margin-bottom: 5px;
+    }
+
+    .mini-card span { color: var(--muted); font-size: 12px; font-weight: 700; }
+
+    .floating-badge {
+      position: absolute;
+      padding: 14px 16px;
+      border-radius: 18px;
+      background: var(--surface-2);
+      border: 1px solid var(--line);
+      backdrop-filter: blur(20px);
+      box-shadow: var(--shadow);
+      font-size: 13px;
+      font-weight: 800;
+      animation: badgeFloat 4.5s ease-in-out infinite alternate;
+    }
+
+    .floating-badge.one { top: 50px; right: 8%; }
+    .floating-badge.two { bottom: 76px; left: 2%; animation-delay: -2s; }
+
+    @keyframes badgeFloat {
+      to { transform: translateY(-14px); }
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      margin-top: 14px;
+    }
+
+    .stat-card {
+      padding: 26px;
+      border-radius: var(--radius-sm);
+      transition: transform 0.25s ease, border-color 0.25s ease;
+    }
+
+    .stat-card:hover { transform: translateY(-6px); border-color: rgba(255, 106, 0, 0.42); }
+    .stat-card strong { display: block; font-size: clamp(30px, 5vw, 46px); letter-spacing: -0.055em; margin-bottom: 7px; }
+    .stat-card span { color: var(--muted); font-weight: 700; }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 0.82fr 1.18fr;
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    .about-panel {
+      padding: 30px;
+      border-radius: var(--radius);
+      min-height: 100%;
+    }
+
+    .about-profile {
+      display: grid;
+      gap: 18px;
+    }
+
+    .profile-large {
+      aspect-ratio: 1;
+      border-radius: 32px;
+      display: grid;
+      place-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+   
+
+    .meta-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .meta-item {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 15px;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.055);
+      border: 1px solid var(--line);
+    }
+
+    html[data-theme="light"] .meta-item { background: rgba(255,255,255,0.68); }
+    .meta-item span:first-child { color: var(--muted); font-weight: 700; }
+    .meta-item span:last-child { color: var(--text); font-weight: 800; text-align: right; }
+
+    .value-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+      margin-top: 24px;
+    }
+
+    .value-card {
+      padding: 20px;
+      border-radius: 20px;
+      background: rgba(255,255,255,0.055);
+      border: 1px solid var(--line);
+    }
+
+    html[data-theme="light"] .value-card { background: rgba(255,255,255,0.68); }
+    .value-card .icon { font-size: 24px; margin-bottom: 10px; }
+    .value-card h3 { font-size: 18px; margin-bottom: 8px; }
+    .value-card p { font-size: 14px; }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .service-card {
+      position: relative;
+      padding: 24px;
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      min-height: 255px;
+      transition: transform 0.3s ease, border-color 0.3s ease;
+    }
+
+    .service-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 0 0, rgba(255, 106, 0, 0.22), transparent 35%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-9px);
+      border-color: rgba(255, 106, 0, 0.45);
+    }
+
+    .service-card:hover::before { opacity: 1; }
+
+    .service-card > * { position: relative; z-index: 1; }
+
+    .service-index {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 14px;
+      color: #04111d;
+      background: linear-gradient(135deg, var(--accent), #fff);
+      font-weight: 900;
+      margin-bottom: 22px;
+    }
+
+    .service-card h3 { margin-bottom: 12px; }
+    .service-card p { font-size: 14px; }
+
+    .portfolio-controls {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 28px;
+    }
+
+    .filter-btn {
+      border: 1px solid var(--line);
+      background: var(--surface);
+      color: var(--muted);
+      border-radius: 999px;
+      padding: 11px 16px;
+      cursor: pointer;
+      font-weight: 800;
+      transition: all 0.22s ease;
+    }
+
+    .filter-btn.active,
+    .filter-btn:hover {
+      color: #03101b;
+      background: linear-gradient(135deg, var(--accent), #fff);
+      border-color: transparent;
+    }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .project-card {
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: transform 0.3s ease, opacity 0.25s ease, border-color 0.3s ease;
+    }
+
+    .project-card.hide {
+      display: none;
+    }
+
+    .project-card:hover { transform: translateY(-8px); border-color: rgba(255, 106, 0, 0.46); }
+
+    .project-thumb {
+      height: 220px;
+      position: relative;
+      padding: 18px;
+      background:
+        linear-gradient(135deg, rgba(255,106,0,0.18), rgba(255,155,74,0.24)),
+        linear-gradient(160deg, rgba(255,255,255,0.10), rgba(255,255,255,0.02));
+      border-bottom: 1px solid var(--line);
+      overflow: hidden;
+    }
+
+    .browser-mock {
+      width: 100%;
+      height: 100%;
+      border-radius: 18px;
+      background: rgba(3, 10, 21, 0.72);
+      border: 1px solid rgba(255,255,255,0.12);
+      padding: 14px;
+      position: relative;
+    }
+
+    html[data-theme="light"] .browser-mock { background: rgba(255,255,255,0.82); }
+
+    .browser-dots {
+      display: flex;
+      gap: 6px;
+      margin-bottom: 16px;
+    }
+
+    .browser-dots span {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--accent);
+    }
+
+    .mock-line {
+      height: 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.16);
+      margin: 9px 0;
+    }
+
+    html[data-theme="light"] .mock-line { background: rgba(15, 23, 42, 0.12); }
+
+    .mock-line.short { width: 55%; }
+    .mock-line.medium { width: 78%; }
+    .mock-grid {
+      margin-top: 16px;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 10px;
+    }
+    .mock-box {
+      height: 66px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, rgba(255,106,0,0.22), rgba(255,155,74,0.22));
+    }
+
+    .project-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,0.12);
+      filter: saturate(1.05) contrast(1.03);
+      transition: transform 0.45s ease, filter 0.45s ease;
+    }
+
+    .project-card:hover .project-image {
+      transform: scale(1.06);
+      filter: saturate(1.2) contrast(1.08);
+    }
+
+    .project-image-overlay {
+      position: absolute;
+      inset: 18px;
+      border-radius: 18px;
+      background: linear-gradient(180deg, transparent 30%, rgba(5,7,17,0.78));
+      pointer-events: none;
+    }
+
+    .project-body { padding: 22px; }
+    .project-category { color: var(--accent); font-weight: 800; font-size: 13px; margin-bottom: 10px; }
+    .project-body h3 { margin-bottom: 14px; }
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .tag { padding: 8px 10px; border: 1px solid var(--line); border-radius: 999px; color: var(--muted); font-size: 12px; font-weight: 800; }
+
+    .project-actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 18px;
+    }
+
+    .project-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 42px;
+      padding: 0 15px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 900;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.06);
+      color: var(--soft);
+      transition: transform 0.22s ease, border-color 0.22s ease, background 0.22s ease;
+    }
+
+    .project-link:hover {
+      transform: translateY(-3px);
+      border-color: rgba(255, 106, 0, 0.55);
+      background: rgba(255, 106, 0, 0.12);
+    }
+
+    .project-link.primary {
+      color: #101010;
+      border-color: transparent;
+      background: linear-gradient(135deg, var(--accent), #fff0db);
+    }
+
+    .file-input {
+      position: relative;
+      border: 1px dashed rgba(255, 106, 0, 0.5);
+      border-radius: 16px;
+      padding: 17px;
+      background: rgba(255, 106, 0, 0.08);
+    }
+
+    .file-input input[type="file"] {
+      padding: 0;
+      border: 0;
+      background: transparent;
+    }
+
+    .file-help {
+      margin-top: 8px;
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .skills-layout {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 26px;
+      align-items: start;
+    }
+
+    .skill-visual {
+      padding: 30px;
+      border-radius: var(--radius);
+    }
+
+    .progress-list {
+      display: grid;
+      gap: 18px;
+      margin-top: 26px;
+    }
+
+    .progress-row {
+      display: grid;
+      gap: 9px;
+    }
+
+    .progress-top {
+      display: flex;
+      justify-content: space-between;
+      color: var(--soft);
+      font-weight: 800;
+      font-size: 14px;
+    }
+
+    .progress-bar {
+      height: 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.09);
+      overflow: hidden;
+    }
+
+    html[data-theme="light"] .progress-bar { background: rgba(15, 23, 42, 0.09); }
+
+    .progress-fill {
+      display: block;
+      width: 0;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      transition: width 1.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .skill-cloud {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 11px;
+    }
+
+    .skill-chip {
+      padding: 12px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: var(--surface);
+      color: var(--soft);
+      font-weight: 800;
+      font-size: 13px;
+      transition: transform 0.22s ease, border-color 0.22s ease;
+    }
+
+    .skill-chip:hover {
+      transform: translateY(-4px);
+      border-color: rgba(255, 106, 0, 0.5);
+    }
+
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .testimonial-card {
+      padding: 24px;
+      border-radius: var(--radius);
+      transition: transform 0.3s ease, border-color 0.3s ease;
+    }
+
+    .testimonial-card:hover { transform: translateY(-7px); border-color: rgba(251, 191, 36, 0.45); }
+
+    .stars { color: var(--warning); letter-spacing: 2px; margin-bottom: 16px; }
+
+    .client-row {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      margin-top: 22px;
+    }
+
+    .client-photo {
+      width: 52px;
+      height: 52px;
+      border-radius: 18px;
+      object-fit: cover;
+      border: 1px solid var(--line);
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+    }
+
+    .client-row strong { display: block; margin-bottom: 4px; }
+    .client-row span { color: var(--muted); font-size: 13px; font-weight: 700; }
+
+    .process-wrap {
+      position: relative;
+    }
+
+    .process-line {
+      position: absolute;
+      left: 32px;
+      top: 34px;
+      bottom: 34px;
+      width: 2px;
+      background: linear-gradient(var(--accent), var(--accent-2));
+      opacity: 0.5;
+    }
+
+    .process-list {
+      display: grid;
+      gap: 18px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .process-item {
+      display: grid;
+      grid-template-columns: 66px 1fr;
+      gap: 20px;
+      align-items: start;
+    }
+
+    .process-number {
+      width: 66px;
+      height: 66px;
+      border-radius: 22px;
+      display: grid;
+      place-items: center;
+      color: #04111d;
+      background: linear-gradient(135deg, var(--accent), #fff, var(--accent-2));
+      font-weight: 900;
+      box-shadow: 0 18px 40px rgba(110, 231, 255, 0.18);
+    }
+
+    .process-content {
+      padding: 24px;
+      border-radius: var(--radius-sm);
+    }
+
+    .case-study {
+      border-radius: 34px;
+      padding: 34px;
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 28px;
+      align-items: center;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .case-study::before {
+      content: "";
+      position: absolute;
+      width: 420px;
+      height: 420px;
+      border-radius: 999px;
+      right: -180px;
+      top: -180px;
+      background: radial-gradient(circle, rgba(255,106,0,0.28), transparent 65%);
+      pointer-events: none;
+    }
+
+    .case-list {
+      display: grid;
+      gap: 12px;
+      margin: 22px 0 26px;
+    }
+
+    .case-list li {
+      list-style: none;
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      color: var(--soft);
+      line-height: 1.65;
+    }
+
+    .case-list li::before {
+      content: "✓";
+      width: 24px;
+      height: 24px;
+      flex: 0 0 24px;
+      display: grid;
+      place-items: center;
+      border-radius: 999px;
+      background: rgba(34, 197, 94, 0.18);
+      color: var(--accent-3);
+      font-weight: 900;
+    }
+
+    .case-metrics {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .case-metric {
+      padding: 18px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.065);
+      border: 1px solid var(--line);
+    }
+
+    html[data-theme="light"] .case-metric { background: rgba(255,255,255,0.68); }
+    .case-metric strong { display: block; font-size: 28px; margin-bottom: 6px; }
+    .case-metric span { color: var(--muted); font-size: 12px; font-weight: 800; }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 0.92fr 1.08fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .contact-card, .form-card {
+      padding: 30px;
+      border-radius: var(--radius);
+    }
+
+    .contact-links {
+      display: grid;
+      gap: 14px;
+      margin: 28px 0;
+    }
+
+    .contact-link {
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      align-items: center;
+      padding: 16px;
+      border-radius: 18px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.055);
+      color: var(--soft);
+      font-weight: 800;
+      transition: transform 0.22s ease, border-color 0.22s ease;
+    }
+
+    html[data-theme="light"] .contact-link { background: rgba(255,255,255,0.68); }
+    .contact-link:hover { transform: translateY(-4px); border-color: rgba(255, 106, 0, 0.5); }
+
+    .socials {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .socials a {
+      width: 46px;
+      height: 46px;
+      border-radius: 999px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--line);
+      background: var(--surface);
+      color: var(--text);
+      font-weight: 900;
+      transition: transform 0.22s ease, border-color 0.22s ease;
+    }
+
+    .socials a:hover { transform: translateY(-4px); border-color: rgba(255, 106, 0, 0.55); }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    .field { display: grid; gap: 8px; }
+    .field.full { grid-column: 1 / -1; }
+    label { color: var(--soft); font-size: 13px; font-weight: 800; }
+    input, textarea, select {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 15px 16px;
+      color: var(--text);
+      background: rgba(255,255,255,0.07);
+      outline: none;
+      transition: border-color 0.22s ease, box-shadow 0.22s ease;
+    }
+
+    html[data-theme="light"] input,
+    html[data-theme="light"] textarea,
+    html[data-theme="light"] select { background: rgba(255,255,255,0.82); }
+
+    input:focus, textarea:focus, select:focus {
+      border-color: rgba(110, 231, 255, 0.65);
+      box-shadow: 0 0 0 4px rgba(110, 231, 255, 0.10);
+    }
+
+    textarea { min-height: 142px; resize: vertical; }
+    .form-note { margin-top: 14px; font-size: 13px; }
+
+    .footer {
+      padding: 40px 0;
+      border-top: 1px solid var(--line);
+      position: relative;
+      z-index: 1;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      color: var(--muted);
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 1080px) {
+      .hero-grid,
+      .about-grid,
+      .skills-layout,
+      .case-study,
+      .contact-grid { grid-template-columns: 1fr; }
+      .hero-visual { min-height: 480px; }
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+      .portfolio-grid, .testimonial-grid { grid-template-columns: repeat(2, 1fr); }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 820px) {
+      .menu-btn { display: grid; }
+      .nav-links {
+        position: fixed;
+        left: 16px;
+        right: 16px;
+        top: calc(var(--nav-h) + 10px);
+        display: grid;
+        gap: 0;
+        padding: 14px;
+        border-radius: 24px;
+        background: var(--surface-2);
+        border: 1px solid var(--line);
+        backdrop-filter: blur(24px);
+        transform: translateY(-18px);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.22s ease, transform 0.22s ease;
+      }
+      .nav-links.open {
+        transform: translateY(0);
+        opacity: 1;
+        pointer-events: auto;
+      }
+      .nav-links a { padding: 14px; border-radius: 14px; }
+      .nav-links a:hover { background: rgba(255,255,255,0.07); }
+      .nav-links a::after { display: none; }
+      .nav .btn { display: none; }
+      .section { padding: 82px 0; }
+      .hero { padding-top: 58px; }
+      .value-grid, .form-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 640px) {
+      .container { width: min(100% - 24px, var(--container)); }
+      .services-grid,
+      .portfolio-grid,
+      .testimonial-grid,
+      .stats-grid,
+      .case-metrics { grid-template-columns: 1fr; }
+      .hero-actions { flex-direction: column; }
+      .hero-actions .btn { width: 100%; }
+      .floating-badge { display: none; }
+      .dashboard-card { border-radius: 24px; padding: 14px; }
+      .dashboard-inner { padding: 16px; }
+      .mini-grid { grid-template-columns: 1fr; }
+      .about-panel, .contact-card, .form-card, .case-study { padding: 22px; border-radius: 22px; }
+      .process-item { grid-template-columns: 52px 1fr; gap: 14px; }
+      .process-number { width: 52px; height: 52px; border-radius: 18px; }
+      .process-line { left: 26px; }
+      .brand span:last-child { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="noise" aria-hidden="true"></div>
+  <div class="orb one" aria-hidden="true"></div>
+  <div class="orb two" aria-hidden="true"></div>
+  <div class="orb three" aria-hidden="true"></div>
+
+  <header class="nav" id="top">
+    <div class="container nav-inner">
+      <a class="brand" href="#home" aria-label="Sablu Hasan home">
+        <span class="brand-mark">SH</span>
+        <span>Sablu Hasan</span>
+      </a>
+
+      <nav class="nav-links" id="navLinks" aria-label="Main navigation">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#skills">Skills</a>
+        <a href="#testimonials">Testimonials</a>
+        <a href="#process">Process</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="icon-btn" id="themeToggle" aria-label="Toggle dark and light mode">☾</button>
+        <a class="btn btn-primary" href="#contact">Hire Me</a>
+        <button class="icon-btn menu-btn" id="menuBtn" aria-label="Open navigation menu">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div class="hero-copy reveal">
+          <span class="eyebrow">WordPress Developer | Custom Theme | Elementor Expert</span>
+          <h1>Professional WordPress Developer Building Websites That <span class="gradient-text">Grow Businesses</span></h1>
+          <p class="subheadline">I help startups, agencies, and businesses create modern, fast, and conversion-focused websites.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#portfolio">View Portfolio →</a>
+            <a class="btn btn-secondary" href="#contact">Hire Me Today</a>
+          </div>
+          <div class="hero-trust" aria-label="Trust highlights">
+            <span class="trust-pill">Fast Loading Layout</span>
+            <span class="trust-pill">Mobile First Design</span>
+            <span class="trust-pill">SEO Optimized Structure</span>
+            <span class="trust-pill">Conversion Focused</span>
+          </div>
+        </div>
+
+        <div class="hero-visual reveal">
+          <div class="floating-badge one">⚡ Core Web Vitals Focused</div>
+          <div class="floating-badge two">🚀 High-End Agency Feel</div>
+          <div class="dashboard-card glass" aria-label="Sablu Hasan performance dashboard illustration">
+            <div class="dashboard-inner">
+              <div class="profile-row">
+                <div class="profile-mini">
+                  <div class="avatar">SH</div>
+                  <div>
+                    <h3>Sablu Hasan</h3>
+                    <p>Bangladesh • Freelance Web Developer</p>
+                  </div>
+                </div>
+                <span class="status-dot">Available</span>
+              </div>
+              <p>“I Build Fast, Modern & Conversion-Focused WordPress Websites.”</p>
+              <div class="hero-meter"><span></span></div>
+              <div class="mini-grid">
+                <div class="mini-card"><strong>98%</strong><span>Responsive Quality</span></div>
+                <div class="mini-card"><strong>5★</strong><span>Client Experience</span></div>
+                <div class="mini-card"><strong>24/7</strong><span>Website Reliability</span></div>
+                <div class="mini-card"><strong>100%</strong><span>Business Focused</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-label="Statistics">
+      <div class="container stats-grid reveal">
+        <div class="stat-card glass"><strong><span class="counter" data-target="200">0</span>+</strong><span>Web Projects Completed</span></div>
+        <div class="stat-card glass"><strong><span class="counter" data-target="8">0</span>+</strong><span>Core Services</span></div>
+        <div class="stat-card glass"><strong><span class="counter" data-target="24">0</span>+</strong><span>Professional Skills</span></div>
+        <div class="stat-card glass"><strong><span class="counter" data-target="100">0</span>%</strong><span>Client-Focused Process</span></div>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="container about-grid">
+        <div class="about-panel glass about-profile reveal">
+          <div class="profile-large" aria-label="Sablu Hasan profile avatar">
+            <img src="src/sabluhasan.jpg" alt="">
+          </div>
+          <div class="meta-list">
+            <div class="meta-item"><span>Name</span><span>Sablu Hasan</span></div>
+            <div class="meta-item"><span>Role</span><span>WordPress Developer</span></div>
+            <div class="meta-item"><span>Expertise</span><span>Elementor Pro, WooCommerce</span></div>
+            <div class="meta-item"><span>Location</span><span>Bangladesh</span></div>
+          </div>
+        </div>
+
+        <div class="about-panel glass reveal">
+          <span class="eyebrow">About Me</span>
+          <h2>Premium WordPress solutions built around trust, speed, and business growth.</h2>
+          <p>Sablu Hasan is a professional WordPress developer specializing in custom website development, Elementor Pro, WooCommerce, responsive web design, performance optimization, and business-focused digital solutions. He helps businesses, startups, agencies, and entrepreneurs create powerful websites that drive growth and generate leads.</p>
+          <div class="value-grid">
+            <div class="value-card">
+              <div class="icon">🎯</div>
+              <h3>Conversion Strategy</h3>
+              <p>Every section is planned to guide visitors toward action with clear messaging and CTAs.</p>
+            </div>
+            <div class="value-card">
+              <div class="icon">🧩</div>
+              <h3>Custom Development</h3>
+              <p>Clean, scalable WordPress builds using Elementor Pro, WooCommerce, and custom logic.</p>
+            </div>
+            <div class="value-card">
+              <div class="icon">📱</div>
+              <h3>Responsive UX</h3>
+              <p>Mobile-first interfaces that look sharp, load fast, and feel smooth on every device.</p>
+            </div>
+            <div class="value-card">
+              <div class="icon">⚙️</div>
+              <h3>Optimization</h3>
+              <p>Performance, SEO structure, security, and technical quality are handled from the start.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="services">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="eyebrow">Services</span>
+          <h2>High-converting website services for serious brands.</h2>
+          <p>From custom WordPress websites to advanced WooCommerce stores, every service is crafted to improve trust, speed, user experience, and conversion.</p>
+        </div>
+        <div class="services-grid" id="servicesGrid"></div>
+      </div>
+    </section>
+
+    <section class="section" id="portfolio">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="eyebrow">Portfolio</span>
+          <h2>Selected website projects across business, e-commerce, healthcare, and marketplace brands.</h2>
+          <p>Use the filters to explore the range of project types and technologies used to build premium, scalable WordPress experiences.</p>
+        </div>
+        <div class="portfolio-controls reveal" id="portfolioFilters"></div>
+        <div class="portfolio-grid" id="portfolioGrid"></div>
+      </div>
+    </section>
+
+    <section class="section" aria-label="Case study">
+      <div class="container">
+        <div class="case-study glass reveal">
+          <div>
+            <span class="eyebrow">Featured Case Study</span>
+            <h2>From outdated pages to a premium conversion-focused digital experience.</h2>
+            <p>A modern WordPress redesign approach focused on stronger visual hierarchy, better messaging, faster loading, improved mobile UX, and clearer conversion paths.</p>
+            <ul class="case-list">
+              <li>Rebuilt layout with premium sections and trust-focused content flow.</li>
+              <li>Improved service presentation, CTA clarity, and responsive structure.</li>
+              <li>Optimized the experience for speed, search visibility, and lead generation.</li>
+            </ul>
+            <a class="btn btn-primary" href="#contact">Start a Similar Project</a>
+          </div>
+          <div class="case-metrics">
+            <div class="case-metric"><strong>2.8x</strong><span>CTA Visibility</span></div>
+            <div class="case-metric"><strong>1000+</strong><span>Performance Goal</span></div>
+            <div class="case-metric"><strong>100%</strong><span>Mobile Responsive</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="skills">
+      <div class="container skills-layout">
+        <div class="skill-visual glass reveal">
+          <span class="eyebrow">Skills</span>
+          <h2>Technical skill set built for modern WordPress development.</h2>
+          <p>Strong front-end, WordPress, WooCommerce, SEO, and optimization skills combined with a business-focused design approach.</p>
+          <div class="progress-list">
+            <div class="progress-row">
+              <div class="progress-top"><span>WordPress Development</span><span>96%</span></div>
+              <div class="progress-bar"><span class="progress-fill" data-width="96%"></span></div>
+            </div>
+            <div class="progress-row">
+              <div class="progress-top"><span>Custom Theme</span><span>96%</span></div>
+              <div class="progress-bar"><span class="progress-fill" data-width="96%"></span></div>
+            </div>
+            <div class="progress-row">
+              <div class="progress-top"><span>Elementor Pro & UI Build</span><span>94%</span></div>
+              <div class="progress-bar"><span class="progress-fill" data-width="94%"></span></div>
+            </div>
+            <div class="progress-row">
+              <div class="progress-top"><span>WooCommerce</span><span>90%</span></div>
+              <div class="progress-bar"><span class="progress-fill" data-width="90%"></span></div>
+            </div>
+            <div class="progress-row">
+              <div class="progress-top"><span>Performance & SEO</span><span>88%</span></div>
+              <div class="progress-bar"><span class="progress-fill" data-width="88%"></span></div>
+            </div>
+          </div>
+        </div>
+        <div class="skill-cloud reveal" id="skillsCloud"></div>
+      </div>
+    </section>
+
+    <section class="section" id="testimonials">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="eyebrow">Testimonials</span>
+          <h2>Premium client experience with clear communication and reliable delivery.</h2>
+          <p>Trust-focused testimonial cards designed to build credibility and help visitors feel confident before starting a project.</p>
+        </div>
+        <div class="testimonial-grid" id="testimonialGrid"></div>
+      </div>
+    </section>
+
+    <section class="section" id="process">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="eyebrow">Process</span>
+          <h2>A clear 5-step process from strategy to launch.</h2>
+          <p>Every project follows a structured workflow to reduce confusion, improve quality, and deliver a website that supports real business goals.</p>
+        </div>
+        <div class="process-wrap reveal">
+          <div class="process-line" aria-hidden="true"></div>
+          <div class="process-list" id="processList"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="container contact-grid">
+        <div class="contact-card glass reveal">
+          <span class="eyebrow">Contact</span>
+          <h2>Ready to build a website that looks premium and converts better?</h2>
+          <p>Send your project details and get a professional WordPress solution tailored to your goals.</p>
+          <div class="contact-links">
+            <a class="contact-link" href="mailto:mdsablu0000000@gmail.com"><span>Email</span><span>hello@sabluhasan.dev</span></a>
+            <a class="contact-link" href="https://wa.me/01320704726" target="_blank" rel="noopener"><span>WhatsApp</span><span>Start Chat →</span></a>
+            <a class="contact-link" href="#portfolio"><span>Portfolio</span><span>View Work →</span></a>
+          </div>
+          <div class="socials" aria-label="Social links">
+            <a href="https://www.linkedin.com/in/sablu-h-499b27b3/" aria-label="LinkedIn">in</a>
+            <a href="https://www.facebook.com/share/1BK2rtJgWN/" aria-label="Facebook">f</a>
+            <a href="https://github.com/sablu1234" aria-label="GitHub">GH</a>
+          </div>
+        </div>
+
+        <form class="form-card glass reveal" id="contactForm">
+          <div class="form-grid">
+            <div class="field">
+              <label for="name">Your Name</label>
+              <input id="name" name="name" type="text" placeholder="John Smith" required />
+            </div>
+            <div class="field">
+              <label for="email">Email Address</label>
+              <input id="email" name="email" type="email" placeholder="john@example.com" required />
+            </div>
+            <div class="field">
+              <label for="service">Service Needed</label>
+              <select id="service" name="service" required>
+                <option value="">Select a service</option>
+                <option>WordPress Website Development</option>
+                <option>Elementor Pro Development</option>
+                <option>WooCommerce Development</option>
+                <option>Website Redesign</option>
+                <option>Landing Page Design</option>
+                <option>Speed Optimization</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="budget">Estimated Budget</label>
+              <input id="budget" name="budget" type="text" placeholder="$500 - $2,000" />
+            </div>
+            <div class="field">
+              <label for="projectUrl">Existing Website / Project URL</label>
+              <input id="projectUrl" name="projectUrl" type="url" placeholder="https://yourwebsite.com" />
+            </div>
+            <div class="field full file-input">
+              <label for="referenceImage">Reference Image / Screenshot</label>
+              <input id="referenceImage" name="referenceImage" type="file" accept="image/*" />
+              <p class="file-help" id="fileHelp">Optional: upload a screenshot, design reference, logo, or website inspiration image.</p>
+            </div>
+            <div class="field full">
+              <label for="message">Project Details</label>
+              <textarea id="message" name="message" placeholder="Tell me about your business, website goals, timeline, important features, reference links, and design style..." required></textarea>
+            </div>
+            <div class="field full">
+              <button class="btn btn-primary" type="submit">Send Project Request →</button>
+              <p class="form-note" id="formNote">This demo form is ready for integration with WordPress, Elementor Forms, Fluent Forms, WPForms, or custom backend logic.</p>
+            </div>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="brand">
+        <span class="brand-mark">SH</span>
+        <span>© <span id="year"></span> Sablu Hasan. All rights reserved.</span>
+      </div>
+      <div class="footer-links">
+        <a href="#home">Home</a>
+        <a href="#services">Services</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const services = [
+      { title: "WordPress Website Development", description: "Custom business websites built with WordPress." },
+      { title: "Custom Theme", description: "Total Custom build theme" },
+      { title: "Elementor Pro Development", description: "Pixel-perfect Elementor websites with advanced customization." },
+      { title: "WooCommerce Development", description: "Online stores optimized for sales and conversions." },
+      { title: "Website Redesign", description: "Transform outdated websites into modern experiences." },
+      { title: "Landing Page Design", description: "High-converting landing pages for marketing campaigns." },
+      { title: "Speed Optimization", description: "Improve Core Web Vitals and loading performance." },
+      { title: "SEO Optimization", description: "On-page SEO and technical optimization." },
+      { title: "Website Maintenance", description: "Continuous support and website management." }
+    ];
+
+    const skills = [
+      "WordPress", "Elementor Pro", "WooCommerce", "HTML5", "CSS3", "JavaScript", "PHP", "MySQL", "Bootstrap", "Responsive Design", "Website Optimization", "Technical SEO", "Figma to WordPress", "PSD to WordPress", "Custom WordPress Development", "WordPress Migration", "Website Security", "Speed Optimization", "API Integration", "JetEngine", "JetSmartFilters", "Crocoblock", "Google Analytics", "Google Search Console"
+    ];
+
+    const projects = [
+      {
+        title: "Real Estate Agency Website",
+        category: "Real Estate",
+        technology: ["WordPress", "Custom Theme"],
+        url: "https://cbaestate.com/",
+        image: "src/projects/realstate.png"
+      },
+      {
+        title: "Book Recommendation Platform",
+        category: "Dynamic Website",
+        technology: ["WordPress", "JetSmartFilters", "Elementor"],
+        url: "https://example.com/book-platform",
+        image: "https://placehold.co/900x620/0F172A/FF6A00?text=Book+Recommendation+Platform"
+      },
+    ];
+
+    const processSteps = [
+      "Discovery & Strategy",
+      "Planning & Wireframing",
+      "Design & Development",
+      "Testing & Optimization",
+      "Launch & Support"
+    ];
+
+    const testimonials = [
+      {
+        name: "Sarah Mitchell",
+        category: "Business Website",
+        text: "Sablu created a premium WordPress site that immediately made our brand feel more professional. The layout, speed, and communication were excellent.",
+        photo: "https://i.pravatar.cc/120?img=47"
+      },
+      {
+        name: "Daniel Carter",
+        category: "WooCommerce Store",
+        text: "Our old store felt outdated. The new WooCommerce experience is faster, cleaner, and much easier for customers to use.",
+        photo: "https://i.pravatar.cc/120?img=12"
+      },
+      {
+        name: "Emma Robinson",
+        category: "Landing Page",
+        text: "The landing page was designed with conversion in mind. Strong CTA flow, clean sections, and a high-end look that matched our campaign perfectly.",
+        photo: "https://i.pravatar.cc/120?img=32"
+      }
+    ];
+
+    const servicesGrid = document.getElementById("servicesGrid");
+    servicesGrid.innerHTML = services.map((service, index) => `
+      <article class="service-card glass reveal">
+        <div class="service-index">${String(index + 1).padStart(2, "0")}</div>
+        <h3>${service.title}</h3>
+        <p>${service.description}</p>
+      </article>
+    `).join("");
+
+    const skillsCloud = document.getElementById("skillsCloud");
+    skillsCloud.innerHTML = skills.map(skill => `<span class="skill-chip">${skill}</span>`).join("");
+
+    const categories = ["All", ...new Set(projects.map(project => project.category))];
+    const portfolioFilters = document.getElementById("portfolioFilters");
+    const portfolioGrid = document.getElementById("portfolioGrid");
+
+    portfolioFilters.innerHTML = categories.map((category, index) => `
+      <button class="filter-btn ${index === 0 ? "active" : ""}" data-filter="${category}">${category}</button>
+    `).join("");
+
+    function renderProjects(filter = "All") {
+      portfolioGrid.innerHTML = projects.map((project) => {
+        const hidden = filter !== "All" && project.category !== filter;
+        return `
+          <article class="project-card glass reveal ${hidden ? "hide" : ""}" data-category="${project.category}">
+            <div class="project-thumb">
+              <img class="project-image" src="${project.image}" alt="${project.title} project screenshot" loading="lazy" />
+              <div class="project-image-overlay"></div>
+            </div>
+            <div class="project-body">
+              <div class="project-category">${project.category}</div>
+              <h3>${project.title}</h3>
+              <div class="tags">${project.technology.map(tech => `<span class="tag">${tech}</span>`).join("")}</div>
+              <div class="project-actions">
+                <a class="project-link primary" href="${project.url}" target="_blank" rel="noopener">View Live URL →</a>
+                <a class="project-link" href="${project.image}" target="_blank" rel="noopener">View Image</a>
+              </div>
+            </div>
+          </article>
+        `;
+      }).join("");
+      observeReveals();
+    }
+
+    renderProjects();
+
+    portfolioFilters.addEventListener("click", (event) => {
+      const button = event.target.closest("button");
+      if (!button) return;
+      document.querySelectorAll(".filter-btn").forEach(btn => btn.classList.remove("active"));
+      button.classList.add("active");
+      renderProjects(button.dataset.filter);
+    });
+
+    const testimonialGrid = document.getElementById("testimonialGrid");
+    testimonialGrid.innerHTML = testimonials.map(item => `
+      <article class="testimonial-card glass reveal">
+        <div class="stars">★★★★★</div>
+        <p>“${item.text}”</p>
+        <div class="client-row">
+          <img class="client-photo" src="${item.photo}" alt="${item.name} client photo" loading="lazy" />
+          <div><strong>${item.name}</strong><span>${item.category}</span></div>
+        </div>
+      </article>
+    `).join("");
+
+    const processList = document.getElementById("processList");
+    const processDescriptions = [
+      "Understand the business goals, target audience, required features, and conversion priorities.",
+      "Map the structure, page flow, content hierarchy, and user journey before development starts.",
+      "Build a premium responsive WordPress website with clean design, strong UX, and scalable functionality.",
+      "Test responsiveness, speed, forms, SEO basics, browser compatibility, and user experience quality.",
+      "Launch the website smoothly and provide continuous support, maintenance, and improvements."
+    ];
+
+    processList.innerHTML = processSteps.map((step, index) => `
+      <article class="process-item">
+        <div class="process-number">${index + 1}</div>
+        <div class="process-content glass">
+          <h3>${step}</h3>
+          <p>${processDescriptions[index]}</p>
+        </div>
+      </article>
+    `).join("");
+
+    const themeToggle = document.getElementById("themeToggle");
+    const root = document.documentElement;
+    const savedTheme = localStorage.getItem("mh-theme");
+    if (savedTheme) root.setAttribute("data-theme", savedTheme);
+    themeToggle.textContent = root.getAttribute("data-theme") === "dark" ? "☾" : "☀";
+
+    themeToggle.addEventListener("click", () => {
+      const nextTheme = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
+      root.setAttribute("data-theme", nextTheme);
+      localStorage.setItem("mh-theme", nextTheme);
+      themeToggle.textContent = nextTheme === "dark" ? "☾" : "☀";
+    });
+
+    const menuBtn = document.getElementById("menuBtn");
+    const navLinks = document.getElementById("navLinks");
+    menuBtn.addEventListener("click", () => navLinks.classList.toggle("open"));
+    navLinks.addEventListener("click", (event) => {
+      if (event.target.tagName === "A") navLinks.classList.remove("open");
+    });
+
+    function observeReveals() {
+      const reveals = document.querySelectorAll(".reveal:not(.visible)");
+      const revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+      reveals.forEach(el => revealObserver.observe(el));
+    }
+    observeReveals();
+
+    const counterObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const counter = entry.target;
+        const target = Number(counter.dataset.target);
+        let current = 0;
+        const increment = Math.max(1, Math.ceil(target / 80));
+        const interval = setInterval(() => {
+          current += increment;
+          if (current >= target) {
+            counter.textContent = target;
+            clearInterval(interval);
+          } else {
+            counter.textContent = current;
+          }
+        }, 18);
+        observer.unobserve(counter);
+      });
+    }, { threshold: 0.55 });
+
+    document.querySelectorAll(".counter").forEach(counter => counterObserver.observe(counter));
+
+    const progressObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.style.width = entry.target.dataset.width;
+        observer.unobserve(entry.target);
+      });
+    }, { threshold: 0.4 });
+
+    document.querySelectorAll(".progress-fill").forEach(bar => progressObserver.observe(bar));
+
+    const sections = document.querySelectorAll("main section[id]");
+    const navAnchors = document.querySelectorAll(".nav-links a");
+    const activeObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const activeId = entry.target.id;
+        navAnchors.forEach(link => {
+          link.classList.toggle("active", link.getAttribute("href") === `#${activeId}`);
+        });
+      });
+    }, { rootMargin: "-35% 0px -55% 0px", threshold: 0.01 });
+    sections.forEach(section => activeObserver.observe(section));
+
+    const referenceImageInput = document.getElementById("referenceImage");
+    const fileHelp = document.getElementById("fileHelp");
+
+    referenceImageInput.addEventListener("change", () => {
+      const file = referenceImageInput.files[0];
+      fileHelp.textContent = file ? `Selected image: ${file.name}` : "Optional: upload a screenshot, design reference, logo, or website inspiration image.";
+    });
+
+    document.getElementById("contactForm").addEventListener("submit", (event) => {
+      event.preventDefault();
+      document.getElementById("formNote").textContent = "Thanks! Your project URL and reference image field are ready. Connect this form with WordPress, Elementor Forms, Fluent Forms, WPForms, or a backend to receive submissions.";
+      event.currentTarget.reset();
+      fileHelp.textContent = "Optional: upload a screenshot, design reference, logo, or website inspiration image.";
+    });
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
