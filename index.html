@@ -1739,11 +1739,12 @@
     const skillsCloud = document.getElementById("skillsCloud");
     skillsCloud.innerHTML = skills.map(skill => `<span class="skill-chip">${skill}</span>`).join("");
 
+    // per page limit
     const categories = ["All", ...new Set(projects.map(project => project.category))];
     const portfolioFilters = document.getElementById("portfolioFilters");
     const portfolioGrid = document.getElementById("portfolioGrid");
     const portfolioPagination = document.getElementById("portfolioPagination");
-    const projectsPerPage = 6;
+    const projectsPerPage = 9;
     let currentPortfolioFilter = "All";
     let currentPortfolioPage = 1;
 
