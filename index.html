@@ -671,6 +671,50 @@
       gap: 20px;
     }
 
+    .portfolio-pagination {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 34px;
+    }
+
+    .pagination-btn {
+      min-width: 44px;
+      min-height: 44px;
+      border: 1px solid var(--line);
+      background: var(--surface);
+      color: var(--muted);
+      border-radius: 999px;
+      padding: 0 15px;
+      cursor: pointer;
+      font-weight: 800;
+      transition: all 0.22s ease;
+    }
+
+    .pagination-btn:hover:not(:disabled),
+    .pagination-btn.active {
+      color: #03101b;
+      background: linear-gradient(135deg, var(--accent), #fff);
+      border-color: transparent;
+      transform: translateY(-3px);
+    }
+
+    .pagination-btn:disabled {
+      opacity: 0.45;
+      cursor: not-allowed;
+    }
+
+    .pagination-info {
+      width: 100%;
+      text-align: center;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 700;
+      margin-top: 6px;
+    }
+
     .project-card {
       border-radius: var(--radius);
       overflow: hidden;
@@ -1390,6 +1434,7 @@
         </div>
         <div class="portfolio-controls reveal" id="portfolioFilters"></div>
         <div class="portfolio-grid" id="portfolioGrid"></div>
+        <div class="portfolio-pagination reveal" id="portfolioPagination" aria-label="Portfolio pagination"></div>
       </div>
     </section>
 
@@ -1697,33 +1742,71 @@
     const categories = ["All", ...new Set(projects.map(project => project.category))];
     const portfolioFilters = document.getElementById("portfolioFilters");
     const portfolioGrid = document.getElementById("portfolioGrid");
+    const portfolioPagination = document.getElementById("portfolioPagination");
+    const projectsPerPage = 6;
+    let currentPortfolioFilter = "All";
+    let currentPortfolioPage = 1;
 
     portfolioFilters.innerHTML = categories.map((category, index) => `
       <button class="filter-btn ${index === 0 ? "active" : ""}" data-filter="${category}">${category}</button>
     `).join("");
 
-    function renderProjects(filter = "All") {
-      portfolioGrid.innerHTML = projects.map((project) => {
-        const hidden = filter !== "All" && project.category !== filter;
+    function getFilteredProjects(filter = "All") {
+      return filter === "All" ? projects : projects.filter(project => project.category === filter);
+    }
+
+    function renderProjects(filter = currentPortfolioFilter, page = currentPortfolioPage) {
+      currentPortfolioFilter = filter;
+      const filteredProjects = getFilteredProjects(filter);
+      const totalPages = Math.max(1, Math.ceil(filteredProjects.length / projectsPerPage));
+      currentPortfolioPage = Math.min(Math.max(1, page), totalPages);
+      const startIndex = (currentPortfolioPage - 1) * projectsPerPage;
+      const paginatedProjects = filteredProjects.slice(startIndex, startIndex + projectsPerPage);
+
+      portfolioGrid.innerHTML = paginatedProjects.map((project) => `
+        <article class="project-card glass reveal" data-category="${project.category}">
+          <div class="project-thumb">
+            <img class="project-image" src="${project.image}" alt="${project.title} project screenshot" loading="lazy" />
+            <div class="project-image-overlay"></div>
+          </div>
+          <div class="project-body">
+            <div class="project-category">${project.category}</div>
+            <h3>${project.title}</h3>
+            <div class="tags">${project.technology.map(tech => `<span class="tag">${tech}</span>`).join("")}</div>
+            <div class="project-actions">
+              <a class="project-link primary" href="${project.url}" target="_blank" rel="noopener">View Live URL →</a>
+              <a class="project-link" href="${project.image}" target="_blank" rel="noopener">View Image</a>
+            </div>
+          </div>
+        </article>
+      `).join("");
+
+      renderPortfolioPagination(filteredProjects.length, totalPages);
+      observeReveals();
+    }
+
+    function renderPortfolioPagination(totalProjects, totalPages) {
+      if (totalProjects <= projectsPerPage) {
+        portfolioPagination.innerHTML = "";
+        return;
+      }
+
+      const pageButtons = Array.from({ length: totalPages }, (_, index) => {
+        const pageNumber = index + 1;
         return `
-          <article class="project-card glass reveal ${hidden ? "hide" : ""}" data-category="${project.category}">
-            <div class="project-thumb">
-              <img class="project-image" src="${project.image}" alt="${project.title} project screenshot" loading="lazy" />
-              <div class="project-image-overlay"></div>
-            </div>
-            <div class="project-body">
-              <div class="project-category">${project.category}</div>
-              <h3>${project.title}</h3>
-              <div class="tags">${project.technology.map(tech => `<span class="tag">${tech}</span>`).join("")}</div>
-              <div class="project-actions">
-                <a class="project-link primary" href="${project.url}" target="_blank" rel="noopener">View Live URL →</a>
-                <a class="project-link" href="${project.image}" target="_blank" rel="noopener">View Image</a>
-              </div>
-            </div>
-          </article>
+          <button class="pagination-btn ${pageNumber === currentPortfolioPage ? "active" : ""}" data-page="${pageNumber}" aria-label="Go to portfolio page ${pageNumber}">${pageNumber}</button>
         `;
       }).join("");
-      observeReveals();
+
+      const showingStart = ((currentPortfolioPage - 1) * projectsPerPage) + 1;
+      const showingEnd = Math.min(currentPortfolioPage * projectsPerPage, totalProjects);
+
+      portfolioPagination.innerHTML = `
+        <button class="pagination-btn" data-page="prev" ${currentPortfolioPage === 1 ? "disabled" : ""}>Prev</button>
+        ${pageButtons}
+        <button class="pagination-btn" data-page="next" ${currentPortfolioPage === totalPages ? "disabled" : ""}>Next</button>
+        <div class="pagination-info">Showing ${showingStart}-${showingEnd} of ${totalProjects} projects</div>
+      `;
     }
 
     renderProjects();
@@ -1733,7 +1816,22 @@
       if (!button) return;
       document.querySelectorAll(".filter-btn").forEach(btn => btn.classList.remove("active"));
       button.classList.add("active");
-      renderProjects(button.dataset.filter);
+      renderProjects(button.dataset.filter, 1);
+    });
+
+    portfolioPagination.addEventListener("click", (event) => {
+      const button = event.target.closest("button");
+      if (!button || button.disabled) return;
+      const filteredProjects = getFilteredProjects(currentPortfolioFilter);
+      const totalPages = Math.max(1, Math.ceil(filteredProjects.length / projectsPerPage));
+      const requestedPage = button.dataset.page;
+      let nextPage = Number(requestedPage);
+
+      if (requestedPage === "prev") nextPage = currentPortfolioPage - 1;
+      if (requestedPage === "next") nextPage = currentPortfolioPage + 1;
+
+      renderProjects(currentPortfolioFilter, Math.min(Math.max(1, nextPage), totalPages));
+      document.getElementById("portfolio").scrollIntoView({ behavior: "smooth", block: "start" });
     });
 
     const testimonialGrid = document.getElementById("testimonialGrid");
